@@ -1,4 +1,8 @@
-SELECT *
-FROM person AS p
+SELECT
+    *
+FROM
+    person AS p
     CROSS JOIN pizzeria AS pp
-ORDER BY p.id, pp.id
+ORDER BY
+    p.id,
+    pp.id

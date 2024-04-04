@@ -1,7 +1,7 @@
 SELECT
-    p.name AS person_name,
+    p.name       AS person_name,
     m.pizza_name AS pizza_name,
-    pp.name AS pizzeria_name
+    pp.name      AS pizzeria_name
 FROM
     person_order AS po
     JOIN person AS p ON p.id = po.person_id
@@ -10,4 +10,5 @@ FROM
 ORDER BY
     person_name,
     pizza_name,
-    pizzeria_name;
+    pizzeria_name
+;
