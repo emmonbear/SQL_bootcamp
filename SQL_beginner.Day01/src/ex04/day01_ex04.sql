@@ -1,11 +1,9 @@
-SELECT
-      po.person_id,
-      po.order_date
+SELECT po.person_id, po.order_date
 FROM person_order AS po
-WHERE po.order_date = '2022-01-07'
+WHERE
+    po.order_date = '2022-01-07'
 EXCEPT ALL
-SELECT
-      pv.person_id,
-      pv.visit_date
+SELECT pv.person_id, pv.visit_date
 FROM person_visits AS pv
-WHERE pv.visit_date = '2022-01-07'
+WHERE
+    pv.visit_date = '2022-01-07';
