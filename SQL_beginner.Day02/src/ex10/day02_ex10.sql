@@ -7,4 +7,4 @@ FROM
       JOIN person AS p2 ON p1.address = p2.address
 WHERE
       p1.id > p2.id
-ORDER BY 1, 2, 3
+ORDER BY 1, 2, 3;
