@@ -1,5 +1,5 @@
 UPDATE menu
-SET
+   SET
       price = price * 0.9
-WHERE
+ WHERE
       pizza_name = 'greek pizza'
