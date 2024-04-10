@@ -1,4 +1,3 @@
--- Active: 1711731107020@@127.0.0.1@5432@team00
 CREATE TABLE paths (
        point_1 VARCHAR(10) NOT NULL,
        point_2 VARCHAR(10) NOT NULL,
@@ -41,15 +40,14 @@ SELECT t.tour,
   FROM tsp AS t
  WHERE LENGTH(t.tour) = 9
 
-SELECT f.total_cost + (SELECT p.price 
-                         FROM paths AS p
-                        WHERE p.point_1 = f.last_point
-                              AND p.point_2 = 'a'
-                      ) AS total_cost,
-       tour || 'a' || '}' AS tour
-  FROM final_tsp AS f
- ORDER BY 1, 2;
+SELECT *
+  FROM (SELECT f.total_cost + (SELECT p.price
+                                 FROM paths AS p
+                                WHERE p.point_1 = f.last_point
+                                      AND p.point_2 = 'a'
+                               ) AS total_cost,
+               tour || 'a' || '}' AS tour
+          FROM final_tsp AS f) AS subquery
+ WHERE total_cost = 80;
 
-
-DROP VIEW final_tsp
 
