@@ -17,4 +17,5 @@ SELECT ROW_NUMBER() OVER () AS id,
        ) AS discount
   FROM tmp AS t
  GROUP BY t.person_id,
-          t.pizzeria_id      
+          t.pizzeria_id
+ ORDER BY 2;
