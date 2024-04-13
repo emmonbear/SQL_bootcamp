@@ -1,4 +1,3 @@
--- Active: 1711731107020@@127.0.0.1@5432@model
   WITH visit AS
        (SELECT p.name,
                COUNT(*) AS count
@@ -16,10 +15,19 @@
                JOIN pizzeria AS p
                ON p.id = m.pizzeria_id
          GROUP BY p.name
+       ),
+       svo AS
+       (SELECT CASE 
+                    WHEN v.name IS NULL THEN o.name  
+                    ELSE v.name
+               END,
+               COALESCE(v.count, 0) AS cnt1,
+               COALESCE(o.count, 0) AS cnt2
+          FROM visit AS v
+               FULL JOIN orders AS o
+               ON o.name = v.name
        )
-SELECT v.name,
-       o.count + v.count AS total_count
-  FROM visit AS v
-       JOIN orders AS o
-       ON o.name = v.name
- ORDER BY 2 DESC, 1
+SELECT svo.name,
+       svo.cnt1 + svo.cnt2 AS total_count
+  FROM svo
+ ORDER BY 2 DESC, 1;
