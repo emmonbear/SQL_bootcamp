@@ -1,4 +1,3 @@
--- Active: 1711731107020@@127.0.0.1@5432@model
    DROP TRIGGER trg_person_insert_audit ON person;
    DROP TRIGGER trg_person_update_audit ON person;
    DROP TRIGGER trg_person_delete_audit ON person;
