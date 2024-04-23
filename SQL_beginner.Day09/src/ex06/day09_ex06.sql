@@ -22,7 +22,7 @@ RETURNS TABLE
                                 AND p2.name = pperson
                        WHERE pv.visit_date = pdate
                      )
-              SELECT DISTINCT v.name
+              SELECT v.name
                 FROM visits AS v;
         END;
         $$ LANGUAGE PLPGSQL;

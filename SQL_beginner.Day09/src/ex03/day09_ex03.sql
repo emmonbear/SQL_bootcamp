@@ -1,9 +1,12 @@
+-- Active: 1711731107020@@127.0.0.1@5432@model
    DROP TRIGGER trg_person_insert_audit ON person;
    DROP TRIGGER trg_person_update_audit ON person;
    DROP TRIGGER trg_person_delete_audit ON person;
    DROP FUNCTION fnc_trg_person_insert_audit();
    DROP FUNCTION fnc_trg_person_update_audit();
    DROP FUNCTION fnc_trg_person_delete_audit();
+
+   TRUNCATE person_audit;
 
  CREATE OR REPLACE FUNCTION fnc_trg_person_audit()
 RETURNS TRIGGER AS $$
@@ -44,3 +47,6 @@ EXECUTE FUNCTION fnc_trg_person_audit();
  DELETE 
    FROM person 
   WHERE id = 10;
+
+  SELECT *
+FROM person_audit;

@@ -1,3 +1,4 @@
+-- Active: 1711731107020@@127.0.0.1@5432@model
  CREATE FUNCTION fnc_trg_person_update_audit()
 RETURNS TRIGGER AS $$
   BEGIN
@@ -19,3 +20,6 @@ UPDATE person
 UPDATE person 
    SET name = 'Damir' 
  WHERE id = 10;
+
+ SELECT *
+FROM person_audit;

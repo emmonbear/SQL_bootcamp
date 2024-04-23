@@ -12,6 +12,6 @@ RETURNS TABLE (a INTEGER) AS
            FROM f;
         $$ LANGUAGE SQL;
 
-select * from fnc_fibonacci(1000);
+select * from fnc_fibonacci(20);
 
 select * from fnc_fibonacci();
