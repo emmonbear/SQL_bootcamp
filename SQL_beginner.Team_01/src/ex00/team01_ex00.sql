@@ -1,3 +1,4 @@
+-- Active: 1711731107020@@127.0.0.1@5432@model
   WITH p_table AS 
        (SELECT id,
                u.name AS name,
@@ -46,4 +47,4 @@ SELECT COALESCE(ft.name, 'not defined') AS name,
        COALESCE(ft.last_rate_to_usd, 1) AS last_rate_to_usd,
        ft.volume * COALESCE(ft.last_rate_to_usd, 1) AS total_volume_in_usd
   FROM full_table AS ft
- ORDER BY 1 DESC, 2
+ ORDER BY 1 DESC, 2, 3
